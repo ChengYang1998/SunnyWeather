@@ -1,6 +1,8 @@
 package com.sunnyweather.android.other
 
 import com.sunnyweather.android.BuildConfig
+import com.sunnyweather.android.http.Url
+
 /**
  *    author : Android 轮子哥
  *    github : https://github.com/getActivity/AndroidProject-Kotlin
@@ -62,6 +64,6 @@ object AppConfig {
      * 获取服务器主机地址
      */
     fun getHostUrl(): String {
-        return BuildConfig.HOST_URL
+        return Url.SERVER_RELEASE
     }
 }
