@@ -29,11 +29,9 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
     private val mActionBarLayout: FrameLayout? by lazy { findViewById<FrameLayout>(R.id.actionBarLayout) }
     private val mSearchPlaceEdit: EditText? by lazy { findViewById<EditText>(R.id.searchPlaceEdit) }
     private val mRecyclerView: RecyclerView? by lazy { findViewById<RecyclerView>(R.id.place_recyclerView) }
-
     private lateinit var adapter: PlaceAdapter
 
     companion object {
-
         fun newInstance(): PlaceFragment {
             return PlaceFragment()
         }
@@ -44,15 +42,6 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
     }
 
     override fun initView() {
-//        这个方法中先是给RecyclerView设置了
-//        LayoutManager和适配器，并使用PlaceViewModel中的placeList集合作为数据源。紧接
-//        着调用了EditText的addTextChangedListener() 方法来监听搜索框内容的变化情况 。 每当
-//                搜索框中的内容发生了变化，我们就获取新的内容，然后传递给PlaceViewModel的
-//        www.blogss.cn
-//        searchPlaces() 方法 ， 这样就可以发起搜索城市数据的网络请求了 。 而当输入搜索框中的内
-//                容为空时，我们就将RecyclerView隐藏起来，同时将那张仅用于美观用途的背景图显示出来。
-
-
         val layoutManager = LinearLayoutManager(activity)
         mRecyclerView?.layoutManager = layoutManager
         adapter = PlaceAdapter(requireContext())
@@ -62,13 +51,10 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
 
 
     override fun initData() {
-
     }
 
 
-    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-    }
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
@@ -87,13 +73,10 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
                     } else {
                         toast("未能查询到任何地点")
                     }
-
                 }
-
                 override fun onFail(e: Exception?) {
                     toast("查询error")
                 }
-
             })
 
         } else {
@@ -103,9 +86,7 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
         }
     }
 
-    override fun afterTextChanged(s: Editable?) {
-
-    }
+    override fun afterTextChanged(s: Editable?) {}
 
 
 }
