@@ -3,6 +3,8 @@ package com.sunnyweather.android.http.model
 import com.sunnyweather.android.other.AppConfig
 import com.hjq.http.config.IRequestServer
 import com.hjq.http.model.BodyType
+import com.sunnyweather.android.http.Url
+
 
 /**
  *    author : Android 轮子哥
@@ -17,11 +19,11 @@ class RequestServer : IRequestServer {
     }
 
     override fun getPath(): String {
-        return "api/"
+        return Url.API_PREFIX
     }
 
     override fun getType(): BodyType {
         // 以表单的形式提交参数
-        return BodyType.FORM
+        return BodyType.JSON
     }
 }
