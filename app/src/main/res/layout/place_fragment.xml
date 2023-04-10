@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:background="?android:windowBackground"
-    tools:context="com.sunnyweather.android.copyui.fragment.CopyFragment">
+    tools:context="com.sunnyweather.android.ui.place.PlaceFragment">
 
     <ImageView
         android:id="@+id/bgImageView"
@@ -32,9 +33,11 @@
             android:background="@drawable/search_bg"/>
     </FrameLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/place_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/actionBarLayout"
-        android:visibility="gone"/>
+        tools:listitem="@layout/place_item"
+        tools:itemCount="3"
+        android:visibility="visible"/>
 </RelativeLayout>
