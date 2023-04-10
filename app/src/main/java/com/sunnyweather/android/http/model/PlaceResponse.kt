@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName
  *    time   : 2023/4/10
  *    desc   :
  */
-
 data class PlaceResponse(
     val places: List<Place>,
     val query: String,
