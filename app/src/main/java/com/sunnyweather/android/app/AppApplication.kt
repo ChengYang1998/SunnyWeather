@@ -12,13 +12,6 @@ import androidx.lifecycle.LifecycleOwner
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonToken
 import com.hjq.bar.TitleBar
-import com.sunnyweather.android.R
-import com.sunnyweather.android.aop.Log
-import com.sunnyweather.android.http.glide.GlideApp
-import com.sunnyweather.android.http.model.RequestHandler
-import com.sunnyweather.android.http.model.RequestServer
-import com.sunnyweather.android.manager.ActivityManager
-import com.sunnyweather.android.other.*
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.http.EasyConfig
 import com.hjq.http.config.IRequestApi
@@ -28,6 +21,13 @@ import com.hjq.toast.ToastUtils
 import com.hjq.umeng.UmengClient
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.scwang.smart.refresh.layout.api.RefreshLayout
+import com.sunnyweather.android.R
+import com.sunnyweather.android.aop.Log
+import com.sunnyweather.android.http.glide.GlideApp
+import com.sunnyweather.android.http.model.RequestHandler
+import com.sunnyweather.android.http.model.RequestServer
+import com.sunnyweather.android.manager.ActivityManager
+import com.sunnyweather.android.other.*
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
 import okhttp3.OkHttpClient
@@ -39,7 +39,7 @@ import timber.log.Timber
  *    time   : 2018/10/18
  *    desc   : 应用入口
  */
-class AppApplication : Application() {
+open class AppApplication : Application() {
 
     @Log("启动耗时")
     override fun onCreate() {

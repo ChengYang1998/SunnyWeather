@@ -6,14 +6,14 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import androidx.lifecycle.LifecycleOwner
 import com.google.gson.JsonSyntaxException
-import com.sunnyweather.android.R
-import com.sunnyweather.android.manager.ActivityManager
-import com.sunnyweather.android.ui.activity.LoginActivity
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.http.EasyLog
 import com.hjq.http.config.IRequestApi
 import com.hjq.http.config.IRequestHandler
 import com.hjq.http.exception.*
+import com.sunnyweather.android.R
+import com.sunnyweather.android.copyui.activity.LoginActivity
+import com.sunnyweather.android.manager.ActivityManager
 import com.tencent.mmkv.MMKV
 import okhttp3.Headers
 import okhttp3.Response

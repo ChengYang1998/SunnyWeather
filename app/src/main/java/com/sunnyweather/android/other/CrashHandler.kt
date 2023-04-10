@@ -3,8 +3,8 @@ package com.sunnyweather.android.other
 import android.app.*
 import android.content.*
 import android.os.Process
-import com.sunnyweather.android.ui.activity.CrashActivity
-import com.sunnyweather.android.ui.activity.RestartActivity
+import com.sunnyweather.android.copyui.activity.CrashActivity
+import com.sunnyweather.android.copyui.activity.RestartActivity
 
 /**
  *    author : Android 轮子哥

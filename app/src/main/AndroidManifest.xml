@@ -26,7 +26,7 @@
     <!-- Application 节点详解：https://developer.android.google.cn/guide/topics/manifest/application-element -->
     <!-- Activity 节点详解：https://developer.android.google.cn/guide/topics/manifest/activity-element -->
     <application
-        android:name="com.sunnyweather.android.app.AppApplication"
+        android:name="com.sunnyweather.android.app.SunnyWeatherApplication"
         android:allowBackup="false"
         android:icon="@mipmap/launcher_ic"
         android:label="${app_name}"
@@ -60,7 +60,7 @@
 
         <!-- 闪屏页 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.SplashActivity"
+            android:name="com.sunnyweather.android.copyui.activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
@@ -77,54 +77,54 @@
 
         <!-- 引导页 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.GuideActivity"
+            android:name="com.sunnyweather.android.copyui.activity.GuideActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 首页 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.HomeActivity"
+            android:name="com.sunnyweather.android.copyui.activity.HomeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
 
         <!-- 登录页 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.LoginActivity"
+            android:name="com.sunnyweather.android.copyui.activity.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- 注册页 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.RegisterActivity"
+            android:name="com.sunnyweather.android.copyui.activity.RegisterActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- 崩溃展示（必须在独立进程） -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.CrashActivity"
+            android:name="com.sunnyweather.android.copyui.activity.CrashActivity"
             android:launchMode="singleTop"
             android:process=":crash"
             android:screenOrientation="landscape" />
 
         <!-- 重启应用（必须在独立进程） -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.RestartActivity"
+            android:name="com.sunnyweather.android.copyui.activity.RestartActivity"
             android:launchMode="singleTop"
             android:process=":restart" />
 
         <!-- 设置页 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.SettingActivity"
+            android:name="com.sunnyweather.android.copyui.activity.SettingActivity"
             android:label="@string/setting_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 忘记密码 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.PasswordForgetActivity"
+            android:name="com.sunnyweather.android.copyui.activity.PasswordForgetActivity"
             android:label="@string/password_forget_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -132,7 +132,7 @@
 
         <!-- 重置密码 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.PasswordResetActivity"
+            android:name="com.sunnyweather.android.copyui.activity.PasswordResetActivity"
             android:label="@string/password_reset_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -140,7 +140,7 @@
 
         <!-- 更换手机 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.PhoneResetActivity"
+            android:name="com.sunnyweather.android.copyui.activity.PhoneResetActivity"
             android:label="@string/phone_reset_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -148,85 +148,85 @@
 
         <!-- 关于我们 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.AboutActivity"
+            android:name="com.sunnyweather.android.copyui.activity.AboutActivity"
             android:label="@string/about_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 个人资料 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.PersonalDataActivity"
+            android:name="com.sunnyweather.android.copyui.activity.PersonalDataActivity"
             android:label="@string/personal_data_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 网页浏览 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.BrowserActivity"
+            android:name="com.sunnyweather.android.copyui.activity.BrowserActivity"
             android:label="@string/web_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 拍照选择 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.CameraActivity"
+            android:name="com.sunnyweather.android.copyui.activity.CameraActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 图片裁剪 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.ImageCropActivity"
+            android:name="com.sunnyweather.android.copyui.activity.ImageCropActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 图片选择 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.ImageSelectActivity"
+            android:name="com.sunnyweather.android.copyui.activity.ImageSelectActivity"
             android:label="@string/image_select_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 查看大图 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.ImagePreviewActivity"
+            android:name="com.sunnyweather.android.copyui.activity.ImagePreviewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 播放视频（自适应方向） -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.VideoPlayActivity"
+            android:name="com.sunnyweather.android.copyui.activity.VideoPlayActivity"
             android:launchMode="singleTop"
             android:theme="@style/FullScreenTheme" />
 
         <!-- 播放视频（竖屏方向） -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.VideoPlayActivity$Portrait"
+            android:name="com.sunnyweather.android.copyui.activity.VideoPlayActivity$Portrait"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme" />
 
         <!-- 播放视频（横屏方向） -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.VideoPlayActivity$Landscape"
+            android:name="com.sunnyweather.android.copyui.activity.VideoPlayActivity$Landscape"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/FullScreenTheme" />
 
         <!-- 选择视频 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.VideoSelectActivity"
+            android:name="com.sunnyweather.android.copyui.activity.VideoSelectActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 对话框案例 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.DialogActivity"
+            android:name="com.sunnyweather.android.copyui.activity.DialogActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <!-- 状态案例 -->
         <activity
-            android:name="com.sunnyweather.android.ui.activity.StatusActivity"
+            android:name="com.sunnyweather.android.copyui.activity.StatusActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

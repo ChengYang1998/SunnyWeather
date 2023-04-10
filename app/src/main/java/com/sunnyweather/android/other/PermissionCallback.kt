@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.*
 import android.os.*
 import com.hjq.base.BaseDialog
-import com.sunnyweather.android.ui.dialog.MessageDialog
+import com.sunnyweather.android.copyui.dialog.MessageDialog
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions

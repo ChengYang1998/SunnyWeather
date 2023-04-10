@@ -6,7 +6,7 @@
     android:id="@+id/hl_browser_hint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sunnyweather.android.ui.fragment.BrowserFragment">
+    tools:context="com.sunnyweather.android.copyui.fragment.BrowserFragment">
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/sl_browser_refresh"

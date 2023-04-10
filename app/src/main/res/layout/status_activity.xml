@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.sunnyweather.android.ui.activity.StatusActivity">
+    tools:context="com.sunnyweather.android.copyui.activity.StatusActivity">
 
     <com.hjq.bar.TitleBar
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:layout_height="match_parent">
 
         <fragment
-            android:name="com.sunnyweather.android.ui.fragment.StatusFragment"
+            android:name="com.sunnyweather.android.copyui.fragment.StatusFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="MissingId"

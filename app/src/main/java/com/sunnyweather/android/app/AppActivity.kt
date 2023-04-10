@@ -12,7 +12,7 @@ import com.sunnyweather.android.R
 import com.sunnyweather.android.action.TitleBarAction
 import com.sunnyweather.android.action.ToastAction
 import com.sunnyweather.android.http.model.HttpData
-import com.sunnyweather.android.ui.dialog.WaitDialog
+import com.sunnyweather.android.copyui.dialog.WaitDialog
 import com.hjq.http.listener.OnHttpListener
 import okhttp3.Call
 

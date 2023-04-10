@@ -25,7 +25,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.hjq.base.BaseDialog
 import com.hjq.base.action.ActivityAction
 import com.sunnyweather.android.R
-import com.sunnyweather.android.ui.dialog.MessageDialog
+import com.sunnyweather.android.copyui.dialog.MessageDialog
 import com.hjq.widget.layout.SimpleLayout
 import com.hjq.widget.view.PlayButton
 import java.io.File
