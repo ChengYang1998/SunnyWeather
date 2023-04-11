@@ -1,4 +1,6 @@
-## SunnyWeather
+# SunnyWeather
+
+<img src="https://img.shields.io/badge/version-1.0.0-blue">
 
 Kotlin实战项目，根据《第一行代码》第3版开发。
 
