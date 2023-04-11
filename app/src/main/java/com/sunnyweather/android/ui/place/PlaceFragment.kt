@@ -52,14 +52,15 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
 
     override fun initData() {
 
+        //对PlaceViewModel中的placeLiveData对象进行观察，当有任何数据变化时，就会回调到传入的Observer接口实现中
         viewModel.placeLiveData.observe(this) { result ->
             val places = result.getOrNull()
             if (places != null) {
                 mRecyclerView?.visibility = View.VISIBLE
                 mBgImageView?.visibility = View.GONE
                 viewModel.placeList.clear()
-                viewModel.placeList.addAll(places)
-                updateRecyclerView()
+                viewModel.placeList.addAll(places)  //如果数据不为空，那么就将这些数据添加到PlaceViewModel的placeList集合中
+                updateRecyclerView()    //通知刷新界面
             } else {
                 toast("未能查询到任何地点")
                 result.exceptionOrNull()?.printStackTrace()
@@ -71,6 +72,7 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
         return
     }
+
     override fun afterTextChanged(s: Editable?) {
         return
     }
