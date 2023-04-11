@@ -5,4 +5,4 @@ package com.sunnyweather.android.http.model
  *    time   : 2023/4/11
  *    desc   :
  */
-data class Weather(val realtime: RealtimeResponse, val daily: DailyResponse)
+data class Weather(val realtime: RealtimeResponse.Result.Realtime, val daily: DailyResponse.Result.Daily)

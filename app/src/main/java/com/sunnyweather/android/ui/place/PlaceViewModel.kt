@@ -4,8 +4,8 @@ package com.sunnyweather.android.ui.place
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.sunnyweather.android.http.Repository
 import com.sunnyweather.android.http.model.PlaceResponse
+import com.sunnyweather.android.logic.Repository
 
 /**
  *    author : Chip

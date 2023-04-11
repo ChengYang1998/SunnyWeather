@@ -59,7 +59,7 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
                 mBgImageView?.visibility = View.GONE
                 viewModel.placeList.clear()
                 viewModel.placeList.addAll(places)  //如果数据不为空，那么就将这些数据添加到PlaceViewModel的placeList集合中
-                updateRecyclerView()    //通知刷新界面
+                updateRecyclerView()    //通知刷新界面列表
             } else {
                 toast("未能查询到任何地点")
                 result.exceptionOrNull()?.printStackTrace()

@@ -55,7 +55,7 @@
 
     <application
         android:name="com.sunnyweather.android.app.SunnyWeatherApplication"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@mipmap/launcher_ic"
         android:label="${app_name}"
         android:networkSecurityConfig="@xml/network_security_config"
