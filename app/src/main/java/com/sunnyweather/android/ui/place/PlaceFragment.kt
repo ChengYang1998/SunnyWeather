@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +22,7 @@ import com.sunnyweather.android.app.AppFragment
  */
 class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
 
-    val viewModel by lazy { ViewModelProvider(this).get(PlaceViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(this).get(PlaceViewModel::class.java) }
 
 
     private val mBgImageView: ImageView? by lazy { findViewById<ImageView>(R.id.bgImageView) }
@@ -53,7 +52,7 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
 
     override fun initData() {
 
-        viewModel.placeLiveData.observe(this, Observer { result ->
+        viewModel.placeLiveData.observe(this) { result ->
             val places = result.getOrNull()
             if (places != null) {
                 mRecyclerView?.visibility = View.VISIBLE
@@ -65,36 +64,23 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
                 toast("未能查询到任何地点")
                 result.exceptionOrNull()?.printStackTrace()
             }
-        })
+        }
     }
 
 
-    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        return
+    }
+    override fun afterTextChanged(s: Editable?) {
+        return
+    }
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
         val placeName = s.toString()
         if (placeName.isNotEmpty()) {
-//            //搜索地点信息
-//            searchPlaces(requireActivity(), placeName, object : OnHttpListener<PlaceResponse?> {
-//                override fun onSucceed(result: PlaceResponse?) {
-//                    val places = result?.places
-//                    if (places != null) {
-//                        mRecyclerView?.visibility = View.VISIBLE
-//                        mBgImageView?.visibility = View.GONE
-//                        adapter.clearData()
-//                        adapter.addData(places as MutableList<PlaceResponse.Place>)
-//                    } else {
-//                        toast("未能查询到任何地点")
-//                    }
-//                }
-//                override fun onFail(e: Exception?) {
-//                    toast("查询error")
-//                }
-//            })
 
             viewModel.searchPlaces(placeName)
-
 
         } else {
             mRecyclerView?.visibility = View.GONE
@@ -106,10 +92,8 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
         }
     }
 
-    override fun afterTextChanged(s: Editable?) {}
 
-
-    private fun updateRecyclerView(){
+    private fun updateRecyclerView() {
         adapter.setData(viewModel.placeList)
     }
 
