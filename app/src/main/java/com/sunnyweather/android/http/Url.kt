@@ -1,5 +1,7 @@
 package com.sunnyweather.android.http
 
+import com.sunnyweather.android.app.SunnyWeatherApplication
+
 /**
  *    author : cy
  *    time   : 2023/4/10
@@ -15,5 +17,15 @@ class Url {
 
         //查询城市信息
         val SEARCH_PLACE = "v2/place"
+
+        fun getRealtimeWeather(lng: String, lat: String): String {
+            return "v2.6/${SunnyWeatherApplication.TOKEN}/${lng},${lat}/realtime"
+        }
+
+        fun getDailyWeather(lng: String, lat: String): String {
+            return "v2.6/${SunnyWeatherApplication.TOKEN}/${lng},${lat}/daily                "
+        }
+
     }
+
 }

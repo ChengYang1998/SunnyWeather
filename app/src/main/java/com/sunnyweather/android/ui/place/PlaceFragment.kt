@@ -51,7 +51,6 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher {
 
 
     override fun initData() {
-
         //对PlaceViewModel中的placeLiveData对象进行观察，当有任何数据变化时，就会回调到传入的Observer接口实现中
         viewModel.placeLiveData.observe(this) { result ->
             val places = result.getOrNull()
