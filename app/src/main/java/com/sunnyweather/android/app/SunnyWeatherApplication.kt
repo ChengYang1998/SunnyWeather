@@ -2,6 +2,7 @@ package com.sunnyweather.android.app
 
 import android.annotation.SuppressLint
 import android.content.Context
+import androidx.lifecycle.ProcessLifecycleOwner
 
 /**
  *    author : Chip
@@ -17,11 +18,16 @@ class SunnyWeatherApplication : AppApplication() {
         //全局获取Context上下文
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
+
+         val AppLifecycleOwner =   ProcessLifecycleOwner.get()
+
+
     }
 
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
+
     }
 
 }

@@ -26,6 +26,7 @@ class PlaceAdapter constructor(context: Context) :
 
         override fun onBindView(position: Int) {
             val place: PlaceResponse.Place = getItem(position)
+
             placeName?.text = place.name
             placeAddress?.text = place.address
 
