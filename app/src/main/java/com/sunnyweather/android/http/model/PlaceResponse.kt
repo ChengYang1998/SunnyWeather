@@ -17,6 +17,6 @@ data class PlaceResponse(
         val location: Location,
         val name: String,
     ) {
-        data class Location(val lat: Double, val lng: Double)
+        data class Location(val lng: String, val lat: String)
     }
 }

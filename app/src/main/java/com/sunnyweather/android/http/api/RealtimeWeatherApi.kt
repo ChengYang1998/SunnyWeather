@@ -11,8 +11,8 @@ import com.sunnyweather.android.http.Url
  */
 class RealtimeWeatherApi() : IRequestApi {
 
-    var lng = "0"
-    var lat = "0"
+    private var lng = "0"
+    private var lat = "0"
 
     constructor(lng: String, lat: String) : this() {
         this.lng = lng

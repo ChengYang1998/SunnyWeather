@@ -24,8 +24,6 @@ object Repository {
      *   搜索地点信息 livedata
      *   返回的LiveData对象是可供Activity观察的
      */
-
-
     fun searchPlaces(query: String) = fire(Dispatchers.IO) {
         val placeResponse = searchPlacesInfo(query)
         if (placeResponse.status == "ok") {
@@ -87,60 +85,6 @@ object Repository {
 
 
 }
-//
-///**
-// * 回调嵌套方式
-// */
-//    fun refreshWeather(lng: String, lat: String): LiveData<Result<Weather>> {
-//
-//        val liveData = MutableLiveData<Result<Weather>>()
-//
-//
-//        EasyHttp.get(SunnyWeatherApplication.AppLifecycleOwner)
-//            .api(DailyWeatherApi(lng, lat))
-//            .request(object : HttpCallback<DailyResponse>(object : OnHttpListener<DailyResponse> {
-//                override fun onSucceed(result: DailyResponse) {
-//                    if (result.status == "ok") {
-//                        var dailyResponse = result
-//
-//                        EasyHttp.get(SunnyWeatherApplication.AppLifecycleOwner)
-//                            .api(RealtimeWeatherApi(lng, lat))
-//                            .request(object : HttpCallback<RealtimeResponse>(object :
-//                                OnHttpListener<RealtimeResponse> {
-//                                override fun onSucceed(result: RealtimeResponse) {
-//                                    if (result.status == "ok") {
-//                                        val realtimeResponse = result
-//                                        val weather = Weather(
-//                                            realtimeResponse.result.realtime,
-//                                            dailyResponse.result.daily
-//                                        )
-//                                        liveData.value = Result.success(weather)
-//
-//                                    } else {
-//                                        liveData.value =
-//                                            Result.failure(ResultException(result.status, result))
-//
-//                                    }
-//                                }
-//
-//                                override fun onFail(e: Exception) {
-//                                    throw e
-//                                }
-//
-//                            }) {})
-//
-//                    } else {
-//                        liveData.value = Result.failure(ResultException(result.status, result))
-//                    }
-//                }
-//
-//                override fun onFail(e: Exception) {
-//                    // 请求失败的操作
-//                    throw e
-//                }
-//            }) {})
-//
-//        return liveData
-//    }
+
 
 

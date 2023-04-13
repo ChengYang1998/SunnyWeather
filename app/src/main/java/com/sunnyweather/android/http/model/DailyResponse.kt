@@ -29,7 +29,6 @@ data class DailyResponse(
                 data class LifeDescription(
                     val desc: String
                 )
-
             }
 
             data class Skycon(
