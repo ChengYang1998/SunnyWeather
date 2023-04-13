@@ -4,11 +4,14 @@ import androidx.lifecycle.liveData
 import com.sunnyweather.android.http.SunnyWeatherNetwork.searchDailyInfo
 import com.sunnyweather.android.http.SunnyWeatherNetwork.searchPlacesInfo
 import com.sunnyweather.android.http.SunnyWeatherNetwork.searchRealtimeInfo
+import com.sunnyweather.android.http.model.PlaceResponse
 import com.sunnyweather.android.http.model.Weather
+import com.sunnyweather.android.logic.dao.PlaceDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlin.coroutines.CoroutineContext
+
 
 
 /**
@@ -83,7 +86,9 @@ object Repository {
             emit(result)
         }
 
-
+    fun savePlace(place: PlaceResponse.Place) = PlaceDao.savePlace(place)
+    fun getSavedPlace() = PlaceDao.getSavedPlace()
+    fun isPlaceSaved() = PlaceDao.isPlaceSaved()
 }
 
 

@@ -15,7 +15,6 @@ import com.sunnyweather.android.app.AppFragment
 import com.sunnyweather.android.ui.weather.WeatherActivity
 import kotlinx.android.synthetic.main.place_fragment.*
 
-
 /**
  *    author : Android 轮子哥
  *    github : https://github.com/getActivity/AndroidProject-Kotlin
@@ -27,6 +26,7 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher, BaseAdapter.OnIte
     private val viewModel by lazy { ViewModelProvider(this).get(PlaceViewModel::class.java) }
 
     private lateinit var adapter: PlaceAdapter
+
     companion object {
         fun newInstance(): PlaceFragment {
             return PlaceFragment()
@@ -37,7 +37,20 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher, BaseAdapter.OnIte
         return R.layout.place_fragment
     }
 
+
     override fun initView() {
+        //对是否选择地点进行读取和判断
+        if (viewModel.isPlaceSaved()) {
+            val place = viewModel.getSavedPlace()
+            val intent = Intent(context, WeatherActivity::class.java).apply {
+                putExtra("location_lng", place.location.lng)
+                putExtra("location_lat", place.location.lat)
+                putExtra("place_name", place.name)
+            }
+            startActivity(intent)
+            activity?.finish()
+            return
+        }
         val layoutManager = LinearLayoutManager(activity)
         recyclerView?.layoutManager = layoutManager
         adapter = PlaceAdapter(requireContext())
@@ -45,8 +58,6 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher, BaseAdapter.OnIte
         adapter.setOnItemClickListener(this)
         recyclerView?.adapter = adapter
         searchPlaceEdit?.addTextChangedListener(this)
-
-
     }
 
     override fun initData() {
@@ -64,6 +75,7 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher, BaseAdapter.OnIte
                 result.exceptionOrNull()?.printStackTrace()
             }
         }
+
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -93,12 +105,14 @@ class PlaceFragment : AppFragment<AppActivity>(), TextWatcher, BaseAdapter.OnIte
 
     override fun onItemClick(recyclerView: RecyclerView?, itemView: View?, position: Int) {
         val place = viewModel.placeList[position]
+        viewModel.savePlace(place)
         val intent = Intent(getAttachActivity(), WeatherActivity::class.java).apply {
             putExtra("location_lng", place.location.lng)
             putExtra("location_lat", place.location.lat)
             putExtra("place_name", place.name)
         }
         startActivity(intent)
+        activity?.finish()
     }
 }
 
