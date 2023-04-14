@@ -44,4 +44,6 @@ class PlaceViewModel : ViewModel() {
     //判断用户是否选择过地点
     fun isPlaceSaved() = Repository.isPlaceSaved()
 
+
+
 }

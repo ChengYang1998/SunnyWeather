@@ -30,6 +30,10 @@ object PlaceDao {
 
     private fun sharedPreferences() =
         SunnyWeatherApplication.context.getSharedPreferences("sunny_weather", Context.MODE_PRIVATE)
+
+    fun clearPlace() {
+        sharedPreferences().edit().clear().apply()
+    }
 }
 
 

@@ -76,6 +76,7 @@ object Repository {
      *  在fire()函数的内部会先调用一下liveData()函数，然后在liveData()函数的代码块中统一进行了try catch处理，并在try语句中调用传入的Lambda表达式中的代码，最终获取Lambda表达式的执行结果并调用emit()方法发射出去。
      *  @目的 简化try catch处理
      */
+    @Suppress("SameParameterValue")
     private fun <T> fire(context: CoroutineContext, block: suspend () -> Result<T>) =
         liveData<Result<T>>(context) {
             val result = try {
@@ -89,6 +90,9 @@ object Repository {
     fun savePlace(place: PlaceResponse.Place) = PlaceDao.savePlace(place)
     fun getSavedPlace() = PlaceDao.getSavedPlace()
     fun isPlaceSaved() = PlaceDao.isPlaceSaved()
+    fun clearPlace() {
+        PlaceDao.clearPlace()
+    }
 }
 
 

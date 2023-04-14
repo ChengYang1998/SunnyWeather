@@ -9,10 +9,12 @@ import com.sunnyweather.android.R
 import com.sunnyweather.android.app.AppActivity
 import com.sunnyweather.android.http.model.Weather
 import com.sunnyweather.android.http.model.getSky
+import com.sunnyweather.android.ui.place.MainActivity
 import kotlinx.android.synthetic.main.forecast.*
 import kotlinx.android.synthetic.main.life_index.*
 import kotlinx.android.synthetic.main.now.*
 import kotlinx.android.synthetic.main.weather_activity.*
+import kotlinx.android.synthetic.main.weather_activity.view.*
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
@@ -20,14 +22,27 @@ import java.time.format.DateTimeFormatter
 private const val FIRST_DAY = 0
 
 class WeatherActivity : AppActivity() {
-     private val viewModel by lazy { ViewModelProvider(this).get(WeatherViewModel::class.java) }
-
+    private val viewModel by lazy { ViewModelProvider(this).get(WeatherViewModel::class.java) }
 
     override fun getLayoutId(): Int {
         return R.layout.weather_activity
     }
 
-    override fun initView() {}
+    override fun initView() {
+        swipeRefresh.swipeRefresh.setEnableLoadMore(false)//是否启用上拉加载功能
+        swipeRefresh.setOnRefreshListener {
+            refreshWeather()
+        }
+        navBtn.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        super.onClick(view)
+        if (view == navBtn) {
+            viewModel.clearPlace()
+            startActivity(MainActivity::class.java)
+        }
+    }
 
     override fun initData() {
         //从Intent中取出经纬度坐标和地区名称，并赋值到WeatherViewModel的相应变量中
@@ -49,7 +64,13 @@ class WeatherActivity : AppActivity() {
                 toast("无法成功获取天气信息")
                 result.exceptionOrNull()?.printStackTrace()
             }
+            swipeRefresh.finishRefresh()
         }
+        refreshWeather()
+
+    }
+
+    private fun refreshWeather() {
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
     }
 
@@ -85,7 +106,7 @@ class WeatherActivity : AppActivity() {
             //解析时间
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mmxxx")
             val dateTime = ZonedDateTime.parse(skycon.date, formatter)
-            dateInfo.text = dateTime.format(formatter).subSequence(0,10)
+            dateInfo.text = dateTime.format(formatter).subSequence(0, 10)
 
             val sky = getSky(skycon.value)
             skyIcon.setImageResource(sky.icon)

@@ -29,4 +29,6 @@ class WeatherViewModel : ViewModel() {
     fun refreshWeather(lng: String, lat: String) {
         locationLiveData.value = Location(lng, lat)
     }
+
+    fun clearPlace()= Repository.clearPlace()
 }
