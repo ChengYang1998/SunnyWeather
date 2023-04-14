@@ -16,5 +16,6 @@ https://github.com/getActivity/AndroidProject-Kotlin
 
 架构开发，架构类似如下图：
 
-<img src="https://cdn.jsdelivr.net/gh/ChengYang1998/blogImage@main/PicGo/2019030119322021.jpg" alt="分享一个我开发的MVVM架构的开源小项目_guolin的博客-CSDN博客" style="zoom: 67%;" />
+<img src="https://cdn.jsdelivr.net/gh/ChengYang1998/blogImage@main/PicGo/image-20230414112931412.png" alt="image-20230414112931412" style="zoom: 50%;" />
 
+编写的代码是严格按照MVVM架构来实现的，且拥有合理的架构分层。
