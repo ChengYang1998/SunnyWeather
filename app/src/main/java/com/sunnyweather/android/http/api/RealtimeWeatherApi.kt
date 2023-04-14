@@ -1,5 +1,6 @@
 package com.sunnyweather.android.http.api
 
+import com.hjq.http.annotation.HttpIgnore
 import com.hjq.http.config.IRequestApi
 import com.sunnyweather.android.http.Url
 
@@ -11,7 +12,10 @@ import com.sunnyweather.android.http.Url
  */
 class RealtimeWeatherApi() : IRequestApi {
 
+
+    @HttpIgnore
     private var lng = "0"
+    @HttpIgnore
     private var lat = "0"
 
     constructor(lng: String, lat: String) : this() {
